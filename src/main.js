@@ -4,7 +4,8 @@ import { gsap } from "gsap";
 window.gsap = gsap;
 
 const CONFIG = {
-  svgAssets: [{ url: "/envelope.svg", container: ".envelope" }],
+  // Use a relative path because the site is hosted at /envelope/ on GitHub Pages.
+  svgAssets: [{ url: "./envelope.svg", container: ".envelope" }],
   animation: {
     defaultEase: "power2.inOut",
   },
@@ -93,7 +94,6 @@ function setupEnvelopeAnimation(timeline) {
       "<"
     )
 
-    // Original GSAP envelope opening sequence.
     .to("#closed", {
       duration: 2,
       transformOrigin: "center top",
@@ -179,7 +179,6 @@ function startFlowerAnimation() {
 
   flowerStarted = true;
 
-  // Reveal the supplied CSS flower only after the envelope is fully open.
   flowerScene.classList.remove("not-loaded");
   flowerScene.classList.add("show");
 
